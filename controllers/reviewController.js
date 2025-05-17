@@ -1,13 +1,17 @@
 const User = require('../models/User.js')
 const Review = require('../models/Review.js')
+const Book = require('../models/Book.js')
 
 const createReview = async (req, res) => {
     try {
         const user = await User.findById(req.body.author)
         const review = await Review.create(req.body)
+        const book = await Book.findById(req.body.book)
         user.reviews.push(review._id)
+        book.reviews.push(review._id)
         user.save()
-        res.redirect(`/reviews/${review._id}`)
+        book.save()
+        res.send(review)
     } catch (error) {
         console.error('An error has occurred creating a review!', error.message)
     }
@@ -29,4 +33,10 @@ const deleteReview = async (req, res) => {
     } catch (error) {
         console.error('An error has occurred deleting a review!', error.message)
     }
+}
+
+module.exports = {
+    createReview,
+    updateReview,
+    deleteReview
 }

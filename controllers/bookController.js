@@ -38,7 +38,7 @@ const getAllBooks = async (req, res) => {
 
 const getBookById = async (req, res) => {
     try {
-        const book = await Book.findById(req.params.id)
+        const book = await Book.findById(req.params.id).populate('reviews')
         res.send(book)
     } catch (error) {
         console.error("An error has occured", error.message)

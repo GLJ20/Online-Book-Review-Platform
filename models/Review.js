@@ -5,7 +5,8 @@ const reviewSchema = new mongoose.Schema(
         title: { type: String },
         description: { type: String, required: true },
         rating: { type: String, required: true },
-        author: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
+        author: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+        book: { type: mongoose.Schema.Types.ObjectId, ref: 'Book', required: true}
     },
     { timestamps: true }
 )
