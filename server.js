@@ -24,10 +24,14 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use(methodOverride("_method"))
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: process.env.SECRET_SESSION,
   resave: false,
   saveUninitialized: true
 }))
+
+app.use('/auth', authRouter)
+
+app.use('/users', userRouter)
 
 app.get("/", (req, res) => {
     res.send('Our app is connected . . . ')
