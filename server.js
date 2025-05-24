@@ -39,7 +39,7 @@ app.use('/users', userRouter)
 app.use("/books", bookRouter)
 app.use("/reviews", reviewRouter)
 app.get("/", (req, res) => {
-    res.render('./index.ejs')
+    res.render('./index')
 })
 app.listen(PORT, () => {
     console.log(`Running Server on Port ${PORT} . . . `)

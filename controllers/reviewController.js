@@ -11,7 +11,7 @@ const createReview = async (req, res) => {
         book.reviews.push(review._id)
         user.save()
         book.save()
-        res.redirect(`/books/${review.book}`);
+        res.redirect(`/books/${review.book}`)
     } catch (error) {
         console.error('An error has occurred creating a review!', error.message)
     }
@@ -28,12 +28,14 @@ const updateReview = async (req, res) => {
 
 const deleteReview = async (req, res) => {
     try {
-        await Review.findByIdAndDelete(req.params.id)
-        res.redirect(`/books/${review.book}`);
+        const review = await Review.findByIdAndDelete(req.params.id)
+        res.redirect(`/books/${review.book}`)
     } catch (error) {
         console.error('An error has occurred deleting a review!', error.message)
     }
 }
+
+
 
 module.exports = {
     createReview,
