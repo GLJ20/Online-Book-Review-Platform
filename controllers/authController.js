@@ -6,7 +6,7 @@ const registerUser = async (req, res) => {
   try {
     const userInDatabase = await User.findOne({ email: req.body.email })
     if (userInDatabase) {
-      return res.send('Username already taken!')
+       res.render('./auth/username-taken.ejs')
       // This will be an EJS page later...
     }
     if (req.body.password !== req.body.confirmPassword) {
@@ -21,7 +21,7 @@ const registerUser = async (req, res) => {
       picture: req.body.picture,
       reviews: []
     })
-    res.send(`Thanks for signing up!`)
+    res.render('./auth/thanks.ejs')
     // This will be an EJS page later...
   } catch (error) {
     console.error('An error has occurred registering a user!', error.message)
@@ -49,7 +49,11 @@ const signInUser = async (req, res) => {
       email: user.email,
       _id: user._id
     }
-    res.send(`Thanks for signing in, ${user.name}!`)
+    const id = user.id
+    
+    req.session.save(() => {
+      res.redirect(`/users/${id}`);
+  })
     // This will be an EJS page or redirect later...
   } catch (error) {
     console.error('An error has occurred signing in a user!', error.message)
@@ -58,8 +62,9 @@ const signInUser = async (req, res) => {
 
 const signOutUser = (req, res) => {
   try {
-    req.session.destroy()
-    res.redirect('/')
+    req.session.destroy(() => {
+      res.redirect("/")
+     })
   } catch (error) {
     console.error('An error has occurred signing out a user!', error.message)
   }
@@ -89,7 +94,7 @@ const updatePassword = async (req, res) => {
     user.password = hashedPassword
     // It's critical that this field is updated with the password you hashed with bcrypt, and never the plain text password in req.body.password
     await user.save()
-    res.send(`Your password has been updated, ${user.name}!`)
+    res.render('./auth/confirm.ejs', { user })
     // This will be an EJS page later...
   } catch (error) {
     console.error(
