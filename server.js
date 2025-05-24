@@ -2,6 +2,7 @@ const express = require("express")
 const logger = require("morgan")
 const methodOverride = require("method-override")
 const session = require("express-session")
+const path = require('path');
 require('dotenv').config()
 
 const PORT = process.env.PORT ? process.env.PORT : 5000
@@ -28,6 +29,11 @@ app.use(session({
   saveUninitialized: true
 }))
 
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs'); // or pug, or leave it for static HTML
+app.set('views', path.join(__dirname, 'views'));
+
 app.use('/auth', authRouter)
 
 app.use('/users', userRouter)
@@ -36,7 +42,7 @@ app.use("/books", bookRouter)
 
 app.use("/reviews", reviewRouter)
 app.get("/", (req, res) => {
-    res.send('Our app is connected . . . ')
+    res.send('app is connected');
   })
 
 app.listen(PORT, () => {
