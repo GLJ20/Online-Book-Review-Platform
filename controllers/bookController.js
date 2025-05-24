@@ -9,6 +9,9 @@ const books = [
     {name: "Pluto Volume 7", author: "Naoki Urasawa", cover: "https://i.imgur.com/PQjcxHB.jpeg", description: "Volume 7 in the ground-breaking new manga series from award-winning author Naoki Urasawa", reviews: []},
     {name: "Pluto Volume 8", author: "Naoki Urasawa", cover: "https://i.imgur.com/oH3mEYz.jpeg", description: "Volume 8 in the ground-breaking new manga series from award-winning author Naoki Urasawa", reviews: []}
 ]
+
+const User = require('../models/User.js')
+
 const addMany = async (req, res) => {
     try {
       const data = await Book.insertMany(books)
@@ -30,7 +33,7 @@ const createBook = async (req, res) => {
 const getAllBooks = async (req, res) => {
     try {
         const books = await Book.find({})
-        res.send(books)
+        res.render('./books/allbooks.ejs', {books})
     } catch (error) {
         console.error('An error has occurred getting all recipes!', error.message)
     }
@@ -39,7 +42,8 @@ const getAllBooks = async (req, res) => {
 const getBookById = async (req, res) => {
     try {
         const book = await Book.findById(req.params.id).populate('reviews')
-        res.send(book)
+        // const review = await User.find({})
+        res.render('./books/show.ejs', { book })
     } catch (error) {
         console.error("An error has occured", error.message)
     }
