@@ -1,0 +1,7 @@
+/*! tailwindcss v4.1.7 | MIT License | https://tailwindcss.com */
+.static {
+  position: static;
+}
+.hidden {
+  display: none;
+}

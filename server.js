@@ -2,6 +2,7 @@ const express = require("express")
 const logger = require("morgan")
 const methodOverride = require("method-override")
 const session = require("express-session")
+const path = require('path');
 require('dotenv').config()
 const MongoStore = require("connect-mongo")
 
@@ -41,6 +42,11 @@ app.use((req, res, next) => {
   next()
 })
 
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs'); // or pug, or leave it for static HTML
+app.set('views', path.join(__dirname, 'views'));
+
 app.use('/auth', authRouter)
 
 app.use('/users', userRouter)
@@ -51,7 +57,7 @@ app.use("/reviews", reviewRouter)
 
 app.get("/", (req, res) => {
     res.render('index.ejs')
-  })
+})
 
 app.listen(PORT, () => {
     console.log(`Running Server on Port ${PORT} . . . `)
