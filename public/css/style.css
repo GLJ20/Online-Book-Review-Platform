@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Playfair Display', sans-serif;
+  background-color: #f9f4ef;
+  color: #4b3f2f;
+  line-height: 1.6;
+}
+
+nav {
+  background-color: #cc925b;
+  padding: 15px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 10px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 400px 20px;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  color: #5b4636;
+  margin-top: 0;
+  text-align: center;
+}
+
+/* form {
+  background: #fff8f0;
+  border: 5px solid #d3c0ae;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  max-width: 500px;
+  width: 100%;
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form input,
+form textarea,
+form button {
+  display: block;
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  font-family: inherit;
+  border: 1px solid #bca98e;
+  border-radius: 4px;
+}
+
+form textarea {
+  height: 150px;
+} */
+/* style.css */
+
+/* Target only your custom forms, not Tailwind forms */
+/* form:not(.tw-form) input,
+form:not(.tw-form) textarea,
+form:not(.tw-form) button,
+form:not(.tw-form) select {
+  display: block;
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  font-family: inherit;
+  border: 1px solid #bca98e;
+  border-radius: 4px;
+}
+
+/* Only style buttons in your custom forms */
+/* form:not(.tw-form) button {
+  background-color: #b98962;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+form:not(.tw-form) button:hover {
+  background-color: #a36d4a;
+} */ 
+/* button {
+  background-color: #b98962;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #a36d4a;
+} */
+
+/* style.css */
+
+/* Target only buttons WITHOUT the tw-btn class */
+/* button:not(.tw-btn) {
+    background-color: #b98962;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    padding: 10px;
+    border-radius: 4px;
+    width: auto; /* Remove the 90% width from form buttons */
+  /* }
+  
+  button:not(.tw-btn):hover {
+    background-color: #a36d4a;
+  }
+  
+  /* Explicitly reset Tailwind buttons 
+  button.tw-btn {
+    all: initial;
+    font-family: inherit;
+  } */
+/* ADD THIS NEW CODE: */
+
+/* Custom button class */
+.custom-btn {
+    background-color: #b98962;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    padding: 10px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  
+  .custom-btn:hover {
+    background-color: #a36d4a;
+  }
+  
+  /* Custom form class */
+  .custom-form {
+    background: #fff8f0;
+    border: 5px solid #d3c0ae;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    max-width: 500px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .custom-form input,
+  .custom-form textarea,
+  .custom-form select {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    font-family: inherit;
+    border: 1px solid #bca98e;
+    border-radius: 4px;
+  }
+  
+  .custom-form textarea {
+    height: 150px;
+  }
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 10px 0;
+  text-align: center;
+}
+
+footer {
+  background-color: #cc925b;
+  text-align: center;
+  padding: 10px;
+  color: white;
+}
+/* Book Grid Layout */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 2rem; /* Space between items */
+    padding: 0 2rem; /* Side padding */
+    max-width: 1200px; /* Optional max width */
+    margin: 0 auto; /* Center the grid */
+  }
+  
+  /* Book Card Styling */
+  .book-card {
+    transition: transform 0.3s ease;
+  }
+  
+  .book-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .book-cover {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2/3; /* Standard book ratio */
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .book-title {
+    margin-top: 0.5rem;
+    font-weight: 600;
+    text-align: center;
+    color: #5b4636; /* Your brown color */
+  }
