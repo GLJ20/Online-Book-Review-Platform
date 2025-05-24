@@ -20,7 +20,7 @@ const createReview = async (req, res) => {
 const updateReview = async (req, res) => {
     try {
         const review = await Review.findByIdAndUpdate(req.params.id, req.body, { new: true })
-        res.redirect(`/reviews/${review._id}`)
+         res.redirect(`/books/${review.book}`);
     } catch (error) {
         console.error('An error has occurred updating a review!', error.message)
     }

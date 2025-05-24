@@ -27,7 +27,10 @@
 
         <% if (user._id === review.author._id.toString()) { %>
             <button>Delete</button>
-            <button>Edit</button>
+            <button onclick="window.location.href='/reviews/<%= review._id %>/edit'">Edit</button>
+        
+            </a>
+
         <% } %>
     <% }) %>
 
