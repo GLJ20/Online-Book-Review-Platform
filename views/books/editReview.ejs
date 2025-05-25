@@ -2,7 +2,7 @@
 
 <h2>Edit Review</h2>
 
-<form action="/reviews/<%= review._id %>?_method=PUT" method="POST">
+<form action="/reviews/<%= review._id %>?_method=PUT" method="POST" class="custom-form">
   <label>Title</label>
   <input type="text" name="title" value="<%= review.title %>" required />
 
@@ -12,7 +12,7 @@
   <label>Rating</label>
   <input type="number" name="rating" value="<%= review.rating %>" min="1" max="5" required />
 
-  <button type="submit">Update</button>
+  <button type="submit" class="custom-btn">Update</button>
 </form>
 
 <%- include('../partials/footer.ejs') %>
