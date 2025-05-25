@@ -11,7 +11,7 @@ const createReview = async (req, res) => {
         book.reviews.push(review._id)
         user.save()
         book.save()
-        res.redirect(`/books/${review.book}`)
+        res.redirect(`/books/${review.book}?_=${Date.now()}`)
     } catch (error) {
         console.error('An error has occurred creating a review!', error.message)
     }
