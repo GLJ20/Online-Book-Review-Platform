@@ -35,7 +35,7 @@ We built Ra’ayek to practice working with dynamic routes, RESTful APIs, and CR
 ## Getting Started
 
 ### Deployed App  
-> [Ra’ayek on Render](https://your-deployment-link.com)
+> [Ra’ayek on Render](https://online-book-review-platform.onrender.com)
 
 ### Planning Docs  
 - [**User Stories**](https://imgur.com/a/I3MC8u0)  
