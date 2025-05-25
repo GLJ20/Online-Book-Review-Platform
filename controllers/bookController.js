@@ -42,7 +42,6 @@ const getAllBooks = async (req, res) => {
 const getBookById = async (req, res) => {
     try {
         const book = await Book.findById(req.params.id).populate('reviews')
-        // const review = await User.find({})
         res.render('./books/show.ejs', { book })
     } catch (error) {
         console.error("An error has occured", error.message)
