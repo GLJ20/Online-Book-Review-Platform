@@ -50,103 +50,6 @@ h3 {
   text-align: center;
 }
 
-/* form {
-  background: #fff8f0;
-  border: 5px solid #d3c0ae;
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 6px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
-  max-width: 500px;
-  width: 100%;
-  text-align: left;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-form input,
-form textarea,
-form button {
-  display: block;
-  width: 90%;
-  padding: 10px;
-  margin: 10px 0;
-  font-family: inherit;
-  border: 1px solid #bca98e;
-  border-radius: 4px;
-}
-
-form textarea {
-  height: 150px;
-} */
-/* style.css */
-
-/* Target only your custom forms, not Tailwind forms */
-/* form:not(.tw-form) input,
-form:not(.tw-form) textarea,
-form:not(.tw-form) button,
-form:not(.tw-form) select {
-  display: block;
-  width: 90%;
-  padding: 10px;
-  margin: 10px 0;
-  font-family: inherit;
-  border: 1px solid #bca98e;
-  border-radius: 4px;
-}
-
-/* Only style buttons in your custom forms */
-/* form:not(.tw-form) button {
-  background-color: #b98962;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s ease-in-out;
-}
-
-form:not(.tw-form) button:hover {
-  background-color: #a36d4a;
-} */ 
-/* button {
-  background-color: #b98962;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s ease-in-out;
-}
-
-button:hover {
-  background-color: #a36d4a;
-} */
-
-/* style.css */
-
-/* Target only buttons WITHOUT the tw-btn class */
-/* button:not(.tw-btn) {
-    background-color: #b98962;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s ease-in-out;
-    padding: 10px;
-    border-radius: 4px;
-    width: auto; /* Remove the 90% width from form buttons */
-  /* }
-  
-  button:not(.tw-btn):hover {
-    background-color: #a36d4a;
-  }
-  
-  /* Explicitly reset Tailwind buttons 
-  button.tw-btn {
-    all: initial;
-    font-family: inherit;
-  } */
-/* ADD THIS NEW CODE: */
-
 /* Custom button class */
 .custom-btn {
     background-color: #b98962;
@@ -239,9 +142,125 @@ footer {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
-  .book-title {
-    margin-top: 0.5rem;
+  .book-grid-title {
+    font-size: 1rem;
     font-weight: 600;
+    margin-top: 0.5rem;
     text-align: center;
-    color: #5b4636; /* Your brown color */
+    color: #5b4636;
+  }
+
+/* Book Detail Styling */
+.book-detail {
+    display: flex;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+  }
+  
+  .book-cover-container {
+    flex: 1;
+    position: relative;
+  }
+  
+  .book-cover-detail {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(91, 70, 54, 0.2);
+    border: 5px solid #fff8f0;
+    outline: 1px solid #d3c0ae;
+  }
+  
+  .book-info {
+    flex: 2;
+    padding-top: 20px;
+  }
+  
+  .book-detail-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+    color: #5b4636;
+  }
+  
+  .book-author {
+    font-size: 1.2rem;
+    color: #b98962;
+    margin: 0 0 25px 0;
+    font-style: italic;
+  }
+  
+  .book-description {
+    color: #4b3f2f;
+    line-height: 1.8;
+    margin-bottom: 30px;
+  }
+  
+  .book-meta {
+    font-size: 0.9rem;
+    color: #7a6b5a;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed #d3c0ae;
+  }
+
+  /* Review Card Styling */
+  .review-card {
+    background: #fff8f0;
+    border: 2px solid #d3c0ae;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 100%;
+    min-height: 200px;
+    max-width: 500px;
+    box-shadow: 0 3px 10px rgba(91, 70, 54, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #d3c0ae;
+  }
+  
+  .review-title {
+    font-size: 1.2rem;
+    color: #5b4636;
+    margin: 0;
+  }
+  
+  .review-rating {
+    background: #b98962;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+  }
+  
+  .review-body {
+    flex-grow: 1;
+    padding: 10px 0;
+  }
+  
+  .review-description {
+    line-height: 1.6;
+    color: #4b3f2f;
+    margin: 0;
+  }
+  
+  .review-actions {
+    margin-top: auto;
+    padding-top: 15px;
+    text-align: right;
   }

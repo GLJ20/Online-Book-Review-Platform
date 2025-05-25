@@ -1,16 +1,16 @@
 <%- include('../partials/header.ejs') %>
 
 <h2>All Books</h2>
-<div class="book-grid">  <!-- Changed from <ul> to semantic <div> -->
+<div class="book-grid">  
     <% books.forEach(book => { %>
-      <div class="book-card">  <!-- Each book in its own container -->
+      <div class="book-card">  
         <a href="/books/<%= book._id %>">
           <img 
             src="<%= book.cover %>" 
             alt="<%= book.name %>" 
             class="book-cover"
           >
-          <p class="book-title"><%= book.name %></p>
+          <p class="book-grid-title"><%= book.name %></p>
         </a>
       </div>
     <% }) %>
