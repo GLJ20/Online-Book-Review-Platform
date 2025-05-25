@@ -43,7 +43,7 @@ We built Ra’ayek to practice working with dynamic routes, RESTful APIs, and CR
 
 ---
 
-## 🛠 Technologies Used
+## Technologies Used
 
 | Layer     | Tech                     |
 |-----------|--------------------------|
@@ -56,7 +56,7 @@ We built Ra’ayek to practice working with dynamic routes, RESTful APIs, and CR
 
 ---
 
-## ✨ Features
+## Features
 
 - View detailed book info (cover, description, author)  
 - List user reviews with ratings  
@@ -66,14 +66,14 @@ We built Ra’ayek to practice working with dynamic routes, RESTful APIs, and CR
 
 ---
 
-## 📎 Attributions
+## Attributions
 
 - Fonts & Styling: Tailwind CSS  
 - Hosting: Render  
 
 ---
 
-## 🔮 Next Steps
+## Next Steps
 
 Here’s what we’d like to implement next:
 - Book search & filtering  
