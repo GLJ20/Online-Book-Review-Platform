@@ -7,11 +7,9 @@ const registerUser = async (req, res) => {
     const userInDatabase = await User.findOne({ email: req.body.email })
     if (userInDatabase) {
        res.render('./auth/username-taken.ejs')
-      // This will be an EJS page later...
     }
     if (req.body.password !== req.body.confirmPassword) {
       return res.render('./auth/match-password.ejs')
-      // This will be also be an EJS page...
     }
     const hashedPassword = bcrypt.hashSync(req.body.password, 12)
     await User.create({
@@ -22,7 +20,6 @@ const registerUser = async (req, res) => {
       reviews: []
     })
     res.render('./auth/thanks.ejs')
-    // This will be an EJS page later...
   } catch (error) {
     console.error('An error has occurred registering a user!', error.message)
   }
@@ -33,7 +30,6 @@ const signInUser = async (req, res) => {
     const user = await User.findOne({ email: req.body.email })
     if (!user) {
       return res.render('./auth/no-user-email.ejs')
-      // This will be an EJS page later...
     }
     const validPassword = bcrypt.compareSync(
       req.body.password,
@@ -41,7 +37,6 @@ const signInUser = async (req, res) => {
     )
     if (!validPassword) {
       return res.render('./auth/Incorrect password.ejs')
-      // This will be also be an EJS page...
     }
     req.session.user = {
       email: user.email,
@@ -52,7 +47,6 @@ const signInUser = async (req, res) => {
     req.session.save(() => {
       res.redirect(`/users/${id}`);
   })
-    // This will be an EJS page or redirect later...
   } catch (error) {
     console.error('An error has occurred signing in a user!', error.message)
   }
@@ -82,18 +76,15 @@ const updatePassword = async (req, res) => {
     )
     if (!validPassword) {
       return res.render('./auth/incorrect-old-password')
-      // This will be also be an EJS page...
     }
     if (req.body.newPassword !== req.body.confirmPassword) {
       return res.render('./auth/match-password.ejs')
-      // This will be also be an EJS page...
     }
     const hashedPassword = bcrypt.hashSync(req.body.newPassword, 12)
     user.password = hashedPassword
-    // It's critical that this field is updated with the password you hashed with bcrypt, and never the plain text password in req.body.password
+    
     await user.save()
     res.render('./auth/confirm.ejs', { user })
-    // This will be an EJS page later...
   } catch (error) {
     console.error(
       "An error has occurred updating a user's password!",
