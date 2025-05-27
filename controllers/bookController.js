@@ -10,7 +10,6 @@ const books = [
     {name: "Pluto Volume 8", author: "Naoki Urasawa", cover: "https://i.imgur.com/oH3mEYz.jpeg", description: "Volume 8 in the ground-breaking new manga series from award-winning author Naoki Urasawa", reviews: []}
 ]
 
-const User = require('../models/User.js')
 
 const addMany = async (req, res) => {
     try {
